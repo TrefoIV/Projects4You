@@ -1,5 +1,7 @@
 package it.uniroma3.projects4you.model;
 
+import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -82,7 +84,8 @@ public class Tag {
 	}
 
 	public List<Task> getTasks() {
-		return tasks;
+		HashSet<Task> set = new HashSet<Task>(tasks);
+		return new LinkedList<>(set);
 	}
 
 	public void setTasks(List<Task> tasks) {

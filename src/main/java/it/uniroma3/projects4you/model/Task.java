@@ -1,7 +1,9 @@
 package it.uniroma3.projects4you.model;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -148,7 +150,8 @@ public class Task {
 	}
 
 	public List<Commento> getCommenti() {
-		return commenti;
+		HashSet<Commento> set = new HashSet<Commento>(commenti);
+		return new LinkedList<>(set);
 	}
 
 	public void setCommenti(List<Commento> commenti) {
@@ -160,8 +163,10 @@ public class Task {
 	}
 
 	public List<Tag> getTags() {
-		return tags;
+		HashSet<Tag> set = new HashSet<Tag>(tags);
+		return new LinkedList<>(set);
 	}
+
 
 	public void setTags(List<Tag> tags) {
 		this.tags = tags;
